@@ -33,5 +33,3 @@ let deleteTickets = async function(FD_URL,API_Key,ticket_id){
         }
       })
     }
-  
-deleteTickets("smartstation.freshdesk.com","dDwusSohNkT3Fnr0x4z",7646);
