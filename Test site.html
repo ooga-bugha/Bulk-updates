@@ -1,0 +1,44 @@
+<script src="scripts/cars.js"></script>
+<body>
+	<p>Select local CSV File:</p>
+	<label for="cars">Choose a car:</label>
+	<select name="cars" id="cars">
+		<option value="volvo">Volvo</option>
+		<option value="saab">Saab</option>
+		<option value="mercedes">Mercedes</option>
+		<option value="audi">Audi</option>
+	</select>
+	<br></br>
+	<p>Select local CSV File:</p>
+	<input id="csv" type="file">
+	<br></br>
+	<button type="button" onClick="readFile(document.getElementById('csv'))">Click Me to Verify csv!</button>
+
+</body>
+<script type="text/javascript">
+	var csvArray = [];
+	var i = 0;
+	var element = "";
+	var fileInput = document.getElementById("csv"),
+	readFile = function () {
+		var reader = new FileReader();
+		reader.onload = function () {
+			var final = reader.result;
+			while(i<final.length){
+				if(final[i]=="\n"){
+					csvArray.push(element.split(","));
+					element = "";
+				}
+				else{
+					element = element + final[i];
+				}
+				i++;
+			}
+			console.log(csvArray);
+		};
+		// start reading the file. When it is done, calls the onload event defined above.
+		reader.readAsBinaryString(fileInput.files[0]);
+	};
+	fileInput.addEventListener('change', readFile);
+	
+</script>

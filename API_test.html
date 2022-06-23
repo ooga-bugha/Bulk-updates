@@ -1,0 +1,18 @@
+<script src="scripts/Freshdesk_APIs/ticket_apis.js"></script>
+<script src="node_modules/requirejs/require.js"></script>
+<script src="node_modules/unirest/index.js"></script>
+<body>
+	<p>Enter FD URL: (format subdomain.freshdesk.com)</p>
+    <br>
+	<input type="text" id="URL" name="FD URL">
+    <br>
+    <p>Enter API Key:</p>
+    <br>
+	<input type="text" id="API_Key" name="API Key">
+    <br>
+    <p>Enter ticket ID to be deleted:</p>
+    <br>
+	<input type="text" id="ticket_id" name="Ticket ID">
+    <br></br>    
+    <button type="button" onClick="deleteTickets(document.getElementById('URL'),document.getElementById('API_Key'),document.getElementById('ticket_id'))">Delete</button>
+</body>
